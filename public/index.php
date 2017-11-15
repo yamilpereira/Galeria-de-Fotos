@@ -1,20 +1,12 @@
 <?php
 require_once("../includes/database.php");
-if(isset($db))
-{
-  echo "Fue creado";
-}
-else
-{
-  echo "no fue creado";
-}
-echo "<br />";
+require_once("../includes/user.php");
 
 //$sql="insert into usuario(usuario,clave,nombre,apellido) values('jsonn','12','pereira','mendoza')";
 //$resultado=$db->enviarconsultar($sql);
-$sql="select * from usuario where usuario='jsonn'";
-$resultado=$db->enviarconsultar($sql);
-$usuario=$db->fetch_array($resultado);
+
+$usuario_obj=new Usuario();
+$usuario=$usuario_obj->buscar_por_id(2);
 if($usuario)
 {
   echo $usuario["apellido"];
