@@ -16,9 +16,42 @@ class MySQLBD
     {
       die("Error en la conexion de la base de datos");
     }
-    else
+
+  }
+  public function consultar($sql)
+  {
+     $resultado=mysqli_query($this->conexion,$sql);
+     $this->verficar_consulta($resultado);
+     return $resultado;
+  }
+  public function preparar_consulta($consulta)
+  {
+     $mq_activo=get_magic_quotes_gpc();
+     if(function_exists("mysqli_real_escape_string"))
+     {
+        if($mq_activo)
+        {
+           $consulta=stripcslashes($consulta);
+           // stripcslashes => Devuelve una cadena
+           // con las barras invertidas eliminadas Reconoce las marcas tipo C \n, \r
+           // ..., y la representación octal y hexadecimal.
+        }
+        $consulta=mysqli_real_escape_string($consulta);
+     }
+     else
+     {
+        if(!mq_activo)
+        {
+          $consulta=addcslashes($consulta);
+        }
+     }
+     return $consulta;
+  }
+  private function verficar_consulta($consulta)
+  {
+    if(!$consulta)
     {
-      echo "Conexion exitosa";
+       die("Error al realizar la consulta");
     }
   }
   public function desconectar()
