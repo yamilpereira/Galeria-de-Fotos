@@ -24,6 +24,22 @@ class MySQLBD
      $this->verficar_consulta($resultado);
      return $resultado;
   }
+  public function fetch_array($resultado)
+  {
+     return mysqli_fetch_array($resultado);
+  }
+  public function affected_rows()
+  {
+    return mysqli_affected_rows($this->conexion);
+  }
+  public function insert_id()
+  {
+    return mysqli_insert_id($this->conexion);
+  }
+  public function num_rows($resultado)
+  {
+    return mysqli_num_rows($resultado);
+  }
   public function preparar_consulta($consulta)
   {
      $mq_activo=get_magic_quotes_gpc();
@@ -43,6 +59,10 @@ class MySQLBD
         if(!mq_activo)
         {
           $consulta=addcslashes($consulta);
+          // addslashes => Devuelve un string con barras invertidas delante de los
+          // caracteres que necesitan ser escapados. Estos caracteres son la comilla simple ('), comilla doble "),
+          // barra invertida (\) y NUL (el byte NULL).
+
         }
      }
      return $consulta;
