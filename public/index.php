@@ -11,9 +11,9 @@ else
 echo "<br />";
 
 //$sql="insert into usuario(usuario,clave,nombre,apellido) values('jsonn','12','pereira','mendoza')";
-//$resultado=$db->consultar($sql);
+//$resultado=$db->enviarconsultar($sql);
 $sql="select * from usuario where usuario='jsonn'";
-$resultado=$db->consultar($sql);
+$resultado=$db->enviarconsultar($sql);
 $usuario=$db->fetch_array($resultado);
 if($usuario)
 {

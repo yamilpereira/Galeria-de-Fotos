@@ -4,11 +4,17 @@ require_once("config.php");
 class MySQLBD
 {
   private $conexion;
+  private $ultima_consulta;
+  private $mq_activo;
+  private $real_escape_string;
   function __construct()
   {
-    $this->conectar();
+      $this->abrirconexion();
+      $this->mq_activo=get_magic_quotes_gpc();
+      $this->real_escape_string=function_exists("mysqli_real_escape_string");
+
   }
-  public function conectar()
+  public function abrirconexion()
   {
     //"localhost","root","root","galeria_photos"
     $this->conexion=mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_NAME);
@@ -18,8 +24,9 @@ class MySQLBD
     }
 
   }
-  public function consultar($sql)
+  public function enviarconsultar($sql)
   {
+    $this->ultima_consulta=$sql;
      $resultado=mysqli_query($this->conexion,$sql);
      $this->verficar_consulta($resultado);
      return $resultado;
@@ -42,10 +49,10 @@ class MySQLBD
   }
   public function preparar_consulta($consulta)
   {
-     $mq_activo=get_magic_quotes_gpc();
-     if(function_exists("mysqli_real_escape_string"))
+
+     if($this->real_escape_string)
      {
-        if($mq_activo)
+        if($this->mq_activo)
         {
            $consulta=stripcslashes($consulta);
            // stripcslashes => Devuelve una cadena
@@ -56,7 +63,7 @@ class MySQLBD
      }
      else
      {
-        if(!mq_activo)
+        if(!$this->mq_activo)
         {
           $consulta=addcslashes($consulta);
           // addslashes => Devuelve un string con barras invertidas delante de los
@@ -71,10 +78,13 @@ class MySQLBD
   {
     if(!$consulta)
     {
-       die("Error al realizar la consulta");
+      $salida="Error al realizar la consulta <br />";
+      $salida .= "Ultima Consulta ". $this->ultima_consulta;
+       die($salida);
+
     }
   }
-  public function desconectar()
+  public function cerrarconexion()
   {
     if(isset($this->conexion))
     {
