@@ -24,7 +24,7 @@ class MySQLBD
     }
 
   }
-  public function enviarconsultar($sql)
+  public function enviarconsulta($sql)
   {
     $this->ultima_consulta=$sql;
      $resultado=mysqli_query($this->conexion,$sql);
