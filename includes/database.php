@@ -59,7 +59,7 @@ class MySQLBD
            // con las barras invertidas eliminadas Reconoce las marcas tipo C \n, \r
            // ..., y la representación octal y hexadecimal.
         }
-        $consulta=mysqli_real_escape_string($consulta);
+        $consulta=mysqli_real_escape_string($this->conexion,$consulta);
      }
      else
      {
