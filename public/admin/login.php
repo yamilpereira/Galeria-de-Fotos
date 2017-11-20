@@ -1,26 +1,26 @@
-<?php
-require_once("../../includes/initialize.php");
-  if($sesion->estalogueado())
-  {
-     header('Location: index.php');
-  }
-  if(isset($_POST["submit"]))
-  {
-    $usuario=$_POST["usuario"];
-    $password=$_POST["password"];
-    $usuario=  Usuario::autenticar($usuario,$password);
-    if($usuario)
-    {
-       $sesion->loguearse($usuario);
-       header('Location: index.php');
-    }
-    else
-    {
-      $mensaje="Usuario / Clave no coincide";
-    }
-  }
-?>
-    <?php incluir_plantillas("header.php")?>
+    <?php
+    require_once("../../includes/initialize.php");
+      if($sesion->estalogueado())
+      {
+         header('Location: index.php');
+      }
+      if(isset($_POST["submit"]))
+      {
+        $usuario=$_POST["usuario"];
+        $password=$_POST["password"];
+        $usuario=  Usuario::autenticar($usuario,$password);
+        if($usuario)
+        {
+           $sesion->loguearse($usuario);
+           header('Location: index.php');
+        }
+        else
+        {
+          $mensaje="Usuario / Clave no coincide";
+        }
+      }
+    ?>
+    <?php incluir_plantillas("admin_header.php")?>  
     		 <div id="Contenedor">
       		 <div class="Icon">
              <span class="glyphicon glyphicon-user"></span>
@@ -49,11 +49,7 @@ require_once("../../includes/initialize.php");
       		 </div>
     		 </div>
     </body>
- <!-- vinculando a libreria Jquery-->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
- <!-- Libreria java scritp de bootstrap -->
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-</html>
+ </html>
 <?php
   if($db)
   {

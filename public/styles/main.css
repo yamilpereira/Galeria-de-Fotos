@@ -1,3 +1,47 @@
+.footer-section {
+    background: #0683c9;
+
+
+}
+
+.footer-column h4 {
+    font-size: 2em;
+    color: #fff;
+    margin-bottom: .5em;
+}
+.footer-column p {
+    font-size: .96em;
+    color: #eee;
+    line-height: 1.8em;
+}
+.footer-column ul, li, a {
+    font-size: .96em;
+    color: #eee;
+    line-height: 1.8em;
+}
+.loguito
+{
+	text-align: right;
+	float: left;
+
+}
+
+.headerr {
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: #0683c9;
+}
+.headerr h1#logo {
+  text-align: center;
+  height: 150px;
+  line-height: 150px;
+  font-family: "Oswald", sans-serif;
+  font-size: 60px;
+  color: white;
+  font-weight: 400;
+ }
+
 body{
 	font-size: 12px;
 }
@@ -68,8 +112,4 @@ body{
 /******************************************/
 @media only screen and (max-width:240px){
 
-}
-header zsx
-{
-	background-color: red;
 }
