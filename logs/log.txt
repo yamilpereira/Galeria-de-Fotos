@@ -1,5 +1,2 @@
-2017-11- 10:M%:S% | Logueo |  El usuario yamil pereira se ha logueado
-2017-11- 10:M%:S% | Logueo |  El usuario ricardo romero se ha logueado
-2017-11-27 | 10:49:16am | Logueo |  El usuario yamil pereira se ha logueado
-2017-11-27 | 11:11:16am | Logueo |  El usuario ricardo romero se ha logueado
-2017-11-27 | 11:13:15am | Logueo |  El usuario yamil pereira se ha logueado
+2017-11-27 | 01:03:34pm | limpiar |  El usuario  has limpiado el archivo log
+2017-11-27 | 01:04:02pm | Logueo |  El usuario ricardo romero se ha logueado
