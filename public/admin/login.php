@@ -12,6 +12,9 @@
         if($usuario)
         {
            $sesion->loguearse($usuario);
+           echo "llego";
+           grabar_acciones("Logueo"," El usuario ".$usuario->nombre_completo()." se ha logueado");
+           echo "salio";
            header('Location: index.php');
         }
         else
@@ -20,7 +23,7 @@
         }
       }
     ?>
-    <?php incluir_plantillas("admin_header.php")?>  
+    <?php incluir_plantillas("admin_header.php")?>
     		 <div id="Contenedor">
       		 <div class="Icon">
              <span class="glyphicon glyphicon-user"></span>

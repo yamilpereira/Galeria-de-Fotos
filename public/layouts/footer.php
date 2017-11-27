@@ -12,8 +12,7 @@
 					<ul>
 						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>69632790</li>
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:example@mail.com"> los_mas_buscados1995@hotmail.com</a></li>
-						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Potosi - Bolivia</li>
-
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Potosi - Bolivia </li>
 					</ul>
 				</div>
 			<div class="clearfix"> </div>
@@ -21,3 +20,5 @@
 
 		</div>
 	</div>
+</body>
+</html>
