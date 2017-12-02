@@ -69,6 +69,18 @@ class Usuario
       }
       return $matriz_usuario;
     }
-}
+    public function crear()
+    {
+
+    }
+    public function actualizar()
+    {
+
+    }
+    public function eliminar()
+    {
+
+    }
+ }
 
 ?>
