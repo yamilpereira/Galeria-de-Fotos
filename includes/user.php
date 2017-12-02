@@ -71,7 +71,16 @@ class Usuario
     }
     public function crear()
     {
-
+        global $db;
+        $sql="INSERT INTO usuario(";
+        $sql .= "usuario,clave,nombre,apellido";
+        $sql .=") VALUES('";
+        $sql .= $db->preparar_consulta($this->usuario)."','";
+        $sql .= $db->preparar_consulta($this->clave)."','";
+        $sql .= $db->preparar_consulta($this->nombre)."','";
+        $sql .= $db->preparar_consulta($this->apellido)."')";
+        $db->enviarconsulta($sql);
+        
     }
     public function actualizar()
     {
