@@ -1,7 +1,7 @@
 <?php
 require_once("database.php");
-
-class Usuario
+require_once("tabla.php");
+class Usuario extends Table
 {
     // propiedad
     public $id;
@@ -9,13 +9,9 @@ class Usuario
     public $clave;
     public $nombre;
     public $apellido ;
+    protected static $nombre_tabla="usuario";
     // esto se llama instanciar para convertir en objeto y tener una propiedad
-    public static function buscar_por_id($id)
-    {
-      global $db;
-      $matriz_usuario=self::buscar_por_sql("SELECT * FROM usuario where id={$id}");
-      return (!empty($matriz_usuario)) ? array_shift($matriz_usuario):false;
-    }
+
     public function autenticar($username="",$password="")
     {
 
@@ -29,26 +25,6 @@ class Usuario
       $matriz_usuario=self::buscar_por_sql($sql);
       return (!empty($matriz_usuario)) ? array_shift($matriz_usuario) : false;
     }
-    public static function buscar_todos()
-    {
-        return self::buscar_por_sql("SELECT * from usuario");
-    }
-    public static function instanciar($registro)
-    {
-      $usuario=new Usuario();
-      foreach ($registro as $propiedad => $valor) {
-         if($usuario->propiedad_existe($propiedad))
-         {
-            $usuario->$propiedad=$valor;
-         }
-      }
-      return $usuario;
-    }
-    public function propiedad_existe($propiedad)
-    {
-       $propiedades=get_object_vars($this);
-       return array_key_exists($propiedad,$propiedades);
-    }
     public function nombre_completo()
     {
        if(isset($this->nombre) && isset($this->apellido))
@@ -59,82 +35,8 @@ class Usuario
          return " ";
        }
     }
-    public static function buscar_por_sql($sql)
-    {
-      global $db;
-      $resultado=$db->enviarconsulta($sql);
-      $matriz_usuario=array();
-      while ($registro =$db->fetch_array($resultado)) {
-        array_push($matriz_usuario,Usuario::instanciar($registro));
-      }
-      return $matriz_usuario;
-    }
-    public function guardar()
-    {
-      if(!isset($this->id))
-      {
-         $this->crear();
-      }
-      else
-      {
-        $this->actualizar();
-      }
-    }
-    public function crear()
-    {
-        global $db;
-        $sql="INSERT INTO usuario(";
-        $sql .= "usuario,clave,nombre,apellido";
-        $sql .=") VALUES('";
-        $sql .= $db->preparar_consulta($this->usuario)."','";
-        $sql .= $db->preparar_consulta($this->clave)."','";
-        $sql .= $db->preparar_consulta($this->nombre)."','";
-        $sql .= $db->preparar_consulta($this->apellido)."')";
-        if($db->enviarconsulta($sql))
-        {
-          return true;
-        }
-        else
-        {
-          return false;
-        }
 
-    }
-    public function actualizar()
-    {
-      global $db;
-      $sql="UPDATE usuario SET ";
-      $sql .= "usuario='".$db->preparar_consulta($this->usuario)."',";
-      $sql .= "clave='".$db->preparar_consulta($this->clave)."',";
-      $sql .= "nombre='".$db->preparar_consulta($this->nombre)."',";
-      $sql .= "apellido='".$db->preparar_consulta($this->apellido)."'";
-      $sql .=" WHERE id=".$db->preparar_consulta($this->id);
-      $db->enviarconsulta($sql);
-      if($db->affected_rows()==1)
-      {
-        return true;
-      }
-      else
-      {
-        return false;
-      }
-    }
-    public function eliminar()
-    {
-        global $db;
-        $sql="DELETE FROM usuario ";
-        $sql .="WHERE id=".$db->preparar_consulta($this->id);
-        $sql .=" LIMIT 1";
-        $db->enviarconsulta($sql);
-        if($db->affected_rows()==1)
-        {
-          return true;
-        }
-        else
-        {
-          return false;
-        }
-    }
+
  }
 
 ?>

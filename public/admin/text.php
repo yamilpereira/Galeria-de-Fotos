@@ -13,8 +13,11 @@
 	$usuario->nombre="Yamil";
 	$usuario->apellido ="Pereira Mendoza";
 	$usuario->crear();*/
-	$usuario=Usuario::buscar_por_id(7);
-	$usuario->eliminar();
+	//$usuario=Usuario::buscar_por_id(7);
+	//$usuario->eliminar();
+	$usuario=Usuario::buscar_por_id(6);
+	$usuario->nombre="Gabi";
+	$usuario->actualizar();
 
 ?>
 

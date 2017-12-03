@@ -10,6 +10,5 @@ foreach($resultado as  $resultados) {
   echo $resultados->nombre_completo()." <br />";
 }
 
-
-
 ?>
+<h1>hola como estan</h1>
