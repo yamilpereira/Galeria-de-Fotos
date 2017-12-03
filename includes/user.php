@@ -18,16 +18,14 @@ class Usuario
     }
     public function autenticar($username="",$password="")
     {
+
       global $db;
       $usuario=$db->preparar_consulta($username);
       $pass=$db->preparar_consulta($password);
-
       $sql="SELECT * FROM usuario ";
       $sql .="WHERE usuario='{$usuario}' ";
       $sql .="AND clave='{$pass}' ";
       $sql .="LIMIT 1";
-      var_dump($sql);
-
       $matriz_usuario=self::buscar_por_sql($sql);
       return (!empty($matriz_usuario)) ? array_shift($matriz_usuario) : false;
     }
@@ -110,7 +108,7 @@ class Usuario
       $sql .= "clave='".$db->preparar_consulta($this->clave)."',";
       $sql .= "nombre='".$db->preparar_consulta($this->nombre)."',";
       $sql .= "apellido='".$db->preparar_consulta($this->apellido)."'";
-      $dql .=" WHERE id=".$db->preparar_consulta($this->id);
+      $sql .=" WHERE id=".$db->preparar_consulta($this->id);
       $db->enviarconsulta($sql);
       if($db->affected_rows()==1)
       {
@@ -123,7 +121,19 @@ class Usuario
     }
     public function eliminar()
     {
-
+        global $db;
+        $sql="DELETE FROM usuario ";
+        $sql .="WHERE id=".$db->preparar_consulta($this->id);
+        $sql .=" LIMIT 1";
+        $db->enviarconsulta($sql);
+        if($db->affected_rows()==1)
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
     }
  }
 

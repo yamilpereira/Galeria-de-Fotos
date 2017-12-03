@@ -8,14 +8,14 @@
 <?php incluir_plantillas("admin_header.php")?>
 <?php
 	/*$usuario=new Usuario();
-	$usuario->usuario="ana";
-	$usuario->clave="123456";
-	$usuario->nombre="Ana";
+	$usuario->usuario="json";
+	$usuario->clave="12345";
+	$usuario->nombre="Yamil";
 	$usuario->apellido ="Pereira Mendoza";
 	$usuario->crear();*/
-	$usuario=Usuario::buscar_por_id("1");
-	$usuario->clave="aulaformatiza";
-	$usuario->guardar();
+	$usuario=Usuario::buscar_por_id(7);
+	$usuario->eliminar();
+
 ?>
 
 <?php incluir_plantillas("footer.php")?>

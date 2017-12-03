@@ -1,3 +1,5 @@
 2017-11-27 | 01:03:34pm | limpiar |  El usuario  has limpiado el archivo log
 2017-11-27 | 01:04:02pm | Logueo |  El usuario ricardo romero se ha logueado
 2017-12-02 | 03:21:35pm | Logueo |  El usuario ricardo romero arenas se ha logueado
+2017-12-03 | 08:24:39am | Logueo |  El usuario yamil pereira se ha logueado
+2017-12-03 | 08:27:51am | Logueo |  El usuario Ana Pereira Mendoza se ha logueado
