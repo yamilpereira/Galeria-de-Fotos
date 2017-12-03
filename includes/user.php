@@ -18,14 +18,16 @@ class Usuario
     }
     public function autenticar($username="",$password="")
     {
-
       global $db;
       $usuario=$db->preparar_consulta($username);
       $pass=$db->preparar_consulta($password);
+
       $sql="SELECT * FROM usuario ";
       $sql .="WHERE usuario='{$usuario}' ";
       $sql .="AND clave='{$pass}' ";
       $sql .="LIMIT 1";
+      var_dump($sql);
+
       $matriz_usuario=self::buscar_por_sql($sql);
       return (!empty($matriz_usuario)) ? array_shift($matriz_usuario) : false;
     }
@@ -69,6 +71,17 @@ class Usuario
       }
       return $matriz_usuario;
     }
+    public function guardar()
+    {
+      if(!isset($this->id))
+      {
+         $this->crear();
+      }
+      else
+      {
+        $this->actualizar();
+      }
+    }
     public function crear()
     {
         global $db;
@@ -79,12 +92,34 @@ class Usuario
         $sql .= $db->preparar_consulta($this->clave)."','";
         $sql .= $db->preparar_consulta($this->nombre)."','";
         $sql .= $db->preparar_consulta($this->apellido)."')";
-        $db->enviarconsulta($sql);
-        
+        if($db->enviarconsulta($sql))
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+
     }
     public function actualizar()
     {
-
+      global $db;
+      $sql="UPDATE usuario SET ";
+      $sql .= "usuario='".$db->preparar_consulta($this->usuario)."',";
+      $sql .= "clave='".$db->preparar_consulta($this->clave)."',";
+      $sql .= "nombre='".$db->preparar_consulta($this->nombre)."',";
+      $sql .= "apellido='".$db->preparar_consulta($this->apellido)."'";
+      $dql .=" WHERE id=".$db->preparar_consulta($this->id);
+      $db->enviarconsulta($sql);
+      if($db->affected_rows()==1)
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
     }
     public function eliminar()
     {

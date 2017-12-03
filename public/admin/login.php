@@ -8,7 +8,9 @@
       {
         $usuario=$_POST["usuario"];
         $password=$_POST["password"];
+        //echo $usuario." ".$password;
         $usuario=  Usuario::autenticar($usuario,$password);
+        //var_dump($usuario);
         if($usuario)
         {
            $sesion->loguearse($usuario);
