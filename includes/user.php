@@ -10,6 +10,7 @@ class Usuario extends Table
     public $nombre;
     public $apellido ;
     protected static $nombre_tabla="usuario";
+    protected static $campos=array("usuario","clave","nombre","apellido");
     // esto se llama instanciar para convertir en objeto y tener una propiedad
 
     public function autenticar($username="",$password="")

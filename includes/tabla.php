@@ -3,6 +3,7 @@ require_once("database.php");
 class Table
 {
   protected static $nombre_tabla;
+  protected static $campos;
   public static function buscar_por_id($id)
   {
     global $db;
@@ -39,12 +40,18 @@ class Table
   }
   public  function propiedad_existe($propiedad)
   {
-     $propiedades=$this->propiedades();
+     $propiedades=get_object_vars($this);
      return array_key_exists($propiedad,$propiedades);
   }
   public function  propiedades()
   {
-     return get_object_vars($this);
+    $campos_pro=array();
+    foreach (static::$campos as $value) {
+      $campos_pro[$value]=$this->$value;
+    }
+    return $campos_pro;
+     //return get_object_vars($this);
+
   }
   public function guardar()
   {
@@ -61,7 +68,7 @@ class Table
   {
       global $db;
       $propiedades=$this->propiedades();
-      unset($propiedades['id']);
+      //unset($propiedades['id']);
       $sql="INSERT INTO ".static::$nombre_tabla."(";
       $sql .= implode(",",array_keys($propiedades));
       $sql .=") VALUES('";
@@ -85,7 +92,7 @@ class Table
        array_push($valores,"{$propiedad}='{$value}'");
     }
     //echo "<pre>";
-    unset($valores[0]);
+    //unset($valores[0]);
     //echo var_dump($valores);
     //echo "</pre>";
     $sql="UPDATE ".static::$nombre_tabla." SET ";
