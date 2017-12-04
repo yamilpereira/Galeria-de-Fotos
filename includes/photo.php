@@ -53,7 +53,7 @@ class Foto extends Table
       $this->errores[]="El titulo posee mas de 255 caracteres";
       return  false;
     }
-    $nueva_ruta="/var/www/html/Php/intermedio/Semana 3/GaleriaMejorado/public/images/".$this->archivo;
+    $nueva_ruta="/var/www/html/Php/intermedio/Semana 3/GaleriaMejorado/public/images/"."{$this->archivo}";
     if(empty($this->nombre_temp))
     {
       $this->errores="No han datos suficientes";
