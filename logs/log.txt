@@ -5,3 +5,5 @@
 2017-12-03 | 08:27:51am | Logueo |  El usuario Ana Pereira Mendoza se ha logueado
 2017-12-03 | 02:58:21pm | Logueo |  El usuario Ana Pereira Mendoza se ha logueado
 2017-12-03 | 05:47:21pm | Logueo |  El usuario Ana Pereira Mendoza se ha logueado
+2017-12-03 | 08:19:43pm | Logueo |  El usuario Gabi Pereira Mendoza se ha logueado
+2017-12-03 | 10:18:59pm | Logueo |  El usuario Gabi Pereira Mendoza se ha logueado
