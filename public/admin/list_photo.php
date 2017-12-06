@@ -4,7 +4,6 @@
   $fotos=Foto::buscar_todos();
 ?>
 <?php incluir_plantillas("admin_header.php")?>
-
 <style type="text/css">
     @import url("http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
     .panel-image {
@@ -66,20 +65,17 @@
                       <img src="../images/<?php echo $foto->archivo; ?>" class="panel-image-preview" style="height:100%;" />
                       <label for="toggle-3"></label>
                   </div>
-
                   <div class="panel-footer text-center">
                       <p style="float:left;"><?php echo $foto->peso ." Kybtes";?></p>
-
-                      <a href="#download"><span class="glyphicon glyphicon-download"></span></a>
-
-                      <a href="#share"><span class="glyphicon glyphicon-share-alt"></span></a>
+                      <div class="" style="text-align:right;">
+                        <a href="#"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+                      </div>
                   </div>
               </div>
           </div>
-      <?php }
-      ?>
-
-</div>
+      <?php } ?>
+    </div>
 </div>
 <?php
   incluir_plantillas("footer.php");
