@@ -11,3 +11,5 @@
 2017-12-04 | 10:13:36pm | Logueo |  El usuario Gabi Pereira Mendoza se ha logueado
 2017-12-04 | 11:21:53pm | Logueo |  El usuario Gabi Pereira Mendoza se ha logueado
 2017-12-05 | 11:23:25am | Logueo |  El usuario Gabi Pereira Mendoza se ha logueado
+2017-12-06 | 05:39:59pm | Logueo |  El usuario Gabi Pereira Mendoza se ha logueado
+2017-12-06 | 06:43:17pm | Logueo |  El usuario Gabi Pereira Mendoza se ha logueado

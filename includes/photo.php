@@ -83,5 +83,17 @@ class Foto extends Table
       return false;
     }
   }
+  public function suprimir()
+  {
+    if($this->eliminar())
+    {
+      $ruta_archivo="/var/www/html/Php/intermedio/Semana 3/GaleriaMejorado/public/images/"."{$this->archivo}";
+      return unlink($ruta_archivo);
+    }
+    else
+    {
+       return false;
+    }
+  }
 }
 ?>

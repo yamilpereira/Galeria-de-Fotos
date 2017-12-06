@@ -68,8 +68,16 @@
                   <div class="panel-footer text-center">
                       <p style="float:left;"><?php echo $foto->peso ." Kybtes";?></p>
                       <div class="" style="text-align:right;">
+                        <?php
+                        if(!empty($_GET["mensaje"]))
+                        {
+                          echo '<script type="text/javascript">
+                                 swal("Se elimino la foto"," ", "success");
+                                </script>';
+                        }
+                        ?>
                         <a href="#"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+                        <a href="delete_photo.php?id=<?php echo $foto->id;  ?>"><span class="glyphicon glyphicon-remove"></span></a>
                       </div>
                   </div>
               </div>
