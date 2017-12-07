@@ -95,5 +95,9 @@ class Foto extends Table
        return false;
     }
   }
+  public function ruta_imagen()
+  {
+    return "../images/".$this->$this->archivo;
+  }
 }
 ?>

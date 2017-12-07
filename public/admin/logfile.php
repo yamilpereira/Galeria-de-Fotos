@@ -16,6 +16,7 @@
 
 ?>
 <?php incluir_plantillas("admin_header.php")?>
+<?php incluir_plantillas("nav.php")?>
     <table>
       <thead>
         <tr>

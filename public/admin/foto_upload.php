@@ -19,6 +19,7 @@
 
 ?>
 <?php incluir_plantillas("admin_header.php")?>
+<?php incluir_plantillas("nav.php")?>
 <style type="text/css">
   form {
       width: 25em;

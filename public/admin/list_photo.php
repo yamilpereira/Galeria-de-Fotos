@@ -53,6 +53,7 @@
     color: rgb(100, 100, 100);
     }
 </style>
+<?php incluir_plantillas("nav.php")?>
 <div class="container" style="margin-top:10px;">
   <div class="row form-group">
       <?php foreach ($fotos as $foto) {  ?>
