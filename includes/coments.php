@@ -33,5 +33,16 @@ class Comentario extends Table
     $sql .=" ORDER BY creado ASC";
     return self::buscar_por_sql($sql);
   }
+  public static function comentario_multiples($foto_id)
+  {
+    global $db;
+
+    $sql="select * from usuario as u,comentarios as c where c.foto_id=104";
+    //$sql ="SELECT * FROM ".self::$nombre_tabla.", usuario ";
+    //$sql .=" WHERE ".self::$nombre_tabla.".foto_id=".$db->preparar_consulta($foto_id);
+    //$sql .= " AND ".self::$nombre_tabla.".autor_id=usuario.id";
+    echo $sql;
+    return $db->enviarconsulta($sql);
+  }
 }
 ?>

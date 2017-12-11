@@ -100,7 +100,6 @@ require_once("../includes/initialize.php");
     width: 829px;
   height: 385px;
   }
-
 </style>
 <div class="contenedor">
   <img class="imagen" src="images/<?php echo $foto->archivo; ?>" alt="">
@@ -140,34 +139,19 @@ require_once("../includes/initialize.php");
           </script>';
   }
 ?>
+<?php
+
+$comentarios=Comentario::comentario_por_id($foto->id);
+
+?>
 <div class="container">
   <div class="row">
     <div class="col-sm-10 col-sm-offset-1" id="logout">
         <div class="comment-tabs">
             <div class="tab-content">
                 <div class="tab-pane active" id="comments-logout">
-                    <ul class="media-list">
-                      <li class="media">
-                        <a class="pull-left" href="#">
-                          <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
-                        </a>
-                        <div class="media-body">
-                          <div class="well well-lg">
-                              <h4 class="media-heading text-uppercase reviews">Marco </h4>
-                              <ul class="media-date text-uppercase reviews list-inline">
-                                <li class="dd">22</li>
-                                <li class="mm">09</li>
-                                <li class="aaaa">2014</li>
-                              </ul>
-                              <p class="media-comment">
-                                Great snippet! Thanks for sharing.
-                              </p>
-                              <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
-                              <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyOne"><span class="glyphicon glyphicon-comment"></span> 2 comments</a>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
+                  <?php
+                  foreach ($comentarios as $value) {?>
 
                     <ul class="media-list">
                       <li class="media">
@@ -176,14 +160,17 @@ require_once("../includes/initialize.php");
                         </a>
                         <div class="media-body">
                           <div class="well well-lg">
-                              <h4 class="media-heading text-uppercase reviews">Marco </h4>
+                              <h4 class="media-heading text-uppercase reviews">
+                              <?php
+                              $user=Usuario::buscar_por_id($value->autor_id);
+
+                              echo $user->nombre;
+                              ?> </h4>
                               <ul class="media-date text-uppercase reviews list-inline">
-                                <li class="dd">22</li>
-                                <li class="mm">09</li>
-                                <li class="aaaa">2014</li>
+                                <li class="dd" style="color:black;"><?php echo $value->creado;?></li>
                               </ul>
-                              <p class="media-comment">
-                                Great snippet! Thanks for sharing.
+                              <p class="media-comment" style="color:black;">
+                                <?php echo $value->contenido;?>
                               </p>
                               <a class="btn btn-info btn-circle text-uppercase" href="#" id="reply"><span class="glyphicon glyphicon-share-alt"></span> Reply</a>
                               <a class="btn btn-warning btn-circle text-uppercase" data-toggle="collapse" href="#replyOne"><span class="glyphicon glyphicon-comment"></span> 2 comments</a>
@@ -191,7 +178,7 @@ require_once("../includes/initialize.php");
                         </div>
                       </li>
                     </ul>
-
+                    <?php } ?>
                 </div>
             </div>
         </div>

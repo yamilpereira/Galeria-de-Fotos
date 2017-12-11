@@ -18,6 +18,7 @@ class Table
   {
     global $db;
     $resultado=$db->enviarconsulta($sql);
+
     $matriz_usuario=array();
     while ($registro =$db->fetch_array($resultado))
     {
