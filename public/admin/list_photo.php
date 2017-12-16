@@ -63,7 +63,9 @@
                       <h3 class="panel-title"><?php echo $foto->titulo; ?></h3>
                   </div>
                   <div class="panel-image hide-panel-body" style="height:270px;">
-                      <img src="../images/<?php echo $foto->archivo; ?>" class="panel-image-preview" style="height:100%;" />
+
+                        <img src="../images/<?php echo $foto->archivo; ?>" class="panel-image-preview" style="height:100%;" />
+
                       <label for="toggle-3"></label>
                   </div>
                   <div class="panel-footer text-center">
@@ -76,8 +78,14 @@
                                  swal("Se elimino la foto"," ", "success");
                                 </script>';
                         }
+                        if(!empty($_GET["coment"]))
+                        {
+                          echo '<script type="text/javascript">
+                                 swal("Se elimino el comentario"," ", "success");
+                                </script>';
+                        }
                         ?>
-                        <a href="#"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a href="list_coment.php?id=<?php echo $foto->id; ?>"><span class="glyphicon glyphicon-edit"></span></a>
                         <a href="delete_photo.php?id=<?php echo $foto->id;  ?>"><span class="glyphicon glyphicon-remove"></span></a>
                       </div>
                   </div>
