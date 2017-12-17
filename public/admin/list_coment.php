@@ -6,12 +6,7 @@ if(!empty($_GET["id"]))
 {
     $comentarios=Comentario::comentario_por_id($_GET["id"]);
 }
-if(!empty($_GET["mensaje"]))
-{
-  echo '<script type="text/javascript">
-         swal("Se elimino el comentario"," ", "success");
-        </script>';
-}
+
 ?>
 <?php incluir_plantillas("nav.php")?>
 <div class="container">

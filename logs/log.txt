@@ -1,1 +1,3 @@
 2017-12-16 | 04:42:57pm | limpiar |  El usuario  has limpiado el archivo log
+2017-12-17 | 12:48:47pm | Logueo |  El usuario Gabi Pereira Mendoza se ha logueado
+2017-12-17 | 01:42:23pm | Logueo |  El usuario Yamil Pereira Mendoza se ha logueado

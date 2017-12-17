@@ -39,6 +39,14 @@ class Table
     }
     return $objeto;
   }
+  public static function cantidad_total()
+  {
+      global $db;
+      $sql = "select count(*) FROM ".static::$nombre_tabla;
+      $resultado=$db->enviarconsulta($sql);
+      $registro=$db->fetch_array($resultado);
+      return array_shift($registro);
+  }
   public  function propiedad_existe($propiedad)
   {
      $propiedades=get_object_vars($this);

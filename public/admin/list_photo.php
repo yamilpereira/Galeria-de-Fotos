@@ -81,7 +81,7 @@
                         if(!empty($_GET["coment"]))
                         {
                           echo '<script type="text/javascript">
-                                 swal("Se elimino el comentario"," ", "success");
+                                 swal("Se elimino el comentarios"," ", "success");
                                 </script>';
                         }
                         ?>
